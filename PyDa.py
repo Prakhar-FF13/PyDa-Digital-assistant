@@ -1,6 +1,10 @@
 import wolframalpha
 import wikipedia
 import wx
+import pyttsx3
+
+engine = pyttsx3.init()
+engine.setProperty('rate', 100)
 
 class MyFrame(wx.Frame):
     def __init__(self):
@@ -32,12 +36,19 @@ class MyFrame(wx.Frame):
             res = client.query(input)
             answer = next(res.results).text
             print (answer)
+            engine.say(answer)
+            engine.runAndWait()
         except:
             #wikipedia
             try:
-                print(wikipedia.summary(input))
+                answer = wikipedia.summary(input)
+                print(answer)
+                engine.say(answer)
+                engine.runAndWait()
             except:
                 print("Sorry, could not find anything. I am not that powerful.")
+                engine.say("Sorry")
+                engine.runAndWait()
 
 if(__name__ == '__main__'):
     app = wx.App(True)
