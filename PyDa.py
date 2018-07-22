@@ -25,26 +25,21 @@ class MyFrame(wx.Frame):
     def OnEnter(self, event):
         input = self.txt.GetValue()
         input = input.lower()
-        print("It worked !!")
+        try:
+            #wolframalpha
+            app_id = "XJ3PJW-WJHQH7UTQG"
+            client = wolframalpha.Client(app_id)
+            res = client.query(input)
+            answer = next(res.results).text
+            print (answer)
+        except:
+            #wikipedia
+            try:
+                print(wikipedia.summary(input))
+            except:
+                print("Sorry, could not find anything. I am not that powerful.")
 
 if(__name__ == '__main__'):
     app = wx.App(True)
     frame = MyFrame()
     app.MainLoop()
-'''
-while(True):
-    inp = input("Question: ")
-    try:
-        #wolframalpha
-        app_id = "XJ3PJW-WJHQH7UTQG"
-        client = wolframalpha.Client(app_id)
-        res = client.query(inp)
-        answer = next(res.results).text
-        print (answer)
-    except:
-        #wikipedia
-        try:
-            print(wikipedia.summary(inp))
-        except:
-            print("Could not find anything related, Sorry, i am not that powerful.")
-'''
