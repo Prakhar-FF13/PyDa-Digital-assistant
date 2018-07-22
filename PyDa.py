@@ -1,13 +1,18 @@
 import wolframalpha
 import wikipedia
-input = input("Question: ")
-app_id = "XJ3PJW-WJHQH7UTQG"
-client = wolframalpha.Client(app_id)
-'''
-res = client.query(input)
-answer = next(res.results).text
 
-print (answer)
-'''
-
-print(wikipedia.summary(input))
+while(True):
+    inp = input("Question: ")
+    try:
+        #wolframalpha
+        app_id = "XJ3PJW-WJHQH7UTQG"
+        client = wolframalpha.Client(app_id)
+        res = client.query(inp)
+        answer = next(res.results).text
+        print (answer)
+    except:
+        #wikipedia
+        try:
+            print(wikipedia.summary(inp))
+        except:
+            print("Could not find anything related, Sorry, i am not that powerful.")
