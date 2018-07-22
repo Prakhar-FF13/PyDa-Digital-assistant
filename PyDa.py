@@ -4,7 +4,7 @@ import wx
 import pyttsx3
 
 engine = pyttsx3.init()
-engine.setProperty('rate', 100)
+engine.setProperty('rate', 200)
 
 class MyFrame(wx.Frame):
     def __init__(self):
