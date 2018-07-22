@@ -11,7 +11,11 @@
 pip install package/library_name
 ```
 ### Note
-> To use Wolframalpha API you need a key, to get the key google Wolframalpha API and follow the steps.
+1. To use Wolframalpha API you need a key, to get the key google Wolframalpha API and follow the steps.
+2. After obtaining the Key find the "app_id" variable in OnEnter function and assign the key to it. Like -
+```
+app_id = "Your key here"
+```
 
 ### Known Issues
 > App wont close until the app is done reciting the result found. (Until whole of text is converted to speech )
